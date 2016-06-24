@@ -1,0 +1,75 @@
+body {
+  background: url(../img/wood.png);
+}
+$dark-brown: #9c8679;
+$highlight: #e6b65c;
+$light-brown: #dec6ac;
+$teal: #5da7a9;
+
+.Body {
+  font-family: sans-serif;
+  width:100%;
+  height:100%;
+}
+
+.ChessBoard {
+  	width: 400px;
+  	height: 400px;
+  	display:block;
+  	margin: 3em auto;
+  	border: 10px solid $teal;
+
+  	.row {
+  		display:block;
+  		width:100%;
+  		height: 12.5%;
+  	}
+}
+
+.SquareWrap {
+  	display:inline-block;
+  	min-height:20px;
+  	min-width:20px;
+  	height:100%;
+	width:12.5%;
+
+  .Square {
+  	display:table;
+  	min-height:20px;
+    min-width:20px;
+  	width:100%;
+  	height:100%;
+
+    &.black {
+    	background-color: $dark-brown;
+    }
+    &.white {
+    	background-color: $light-brown;
+    }
+
+    &.selected {
+		background-color: $highlight;
+		&.black {
+			background-color: darken($highlight, 10%)
+		}
+	}
+
+  }
+}
+
+.Piece {
+	width: 100%;
+	height: 100%;
+	display:table-cell;
+	text-align:center;
+	vertical-align:middle;
+	font-size: 25px;
+	color: #fff;
+
+	&.black {
+		color: #000;
+	}
+	&.white {
+		color:#fff;
+	}
+}

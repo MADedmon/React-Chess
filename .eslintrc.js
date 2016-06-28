@@ -4,12 +4,19 @@ module.exports = {
   },
   extends: 'google',
   plugins: [
-    'react'
+  'react'
   ],
   ecmaFeatures: {
-    jsx: true
+    arrowFunctions: true,
+    forOf:true,
+    jsx: true,
+    modules: true,
+    spread: true,
   },
   rules: {
-    'react/sort-comp': 1
+    'react/sort-comp': 1,
+    'max-len': 0,
+    'indent':0,
+    'brace-style':0    
   }
 };

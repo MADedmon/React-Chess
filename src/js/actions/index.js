@@ -1,18 +1,15 @@
-//Types
+/* Types */
+export const SELECT_PIECE = 'SELECT_PIECE';
+export const MOVE_PIECE = 'MOVE_PIECE';
+export const DESELECT_PIECE = 'DESELECT_PIECE';
 
-export const SELECT_PIECE = 'SELECT_PIECE'
-export const MOVE_PIECE = 'MOVE_PIECE'
-export const DESELECT_PIECE = 'DESELECT_PIECE'
-
-//Action Creators
-
+/* Action Creators */
 export const movePiece = (newX, newY, startCoord, piece) => {
-
-	let p = {}
+	let p = {};
 	if (startCoord) {
 		p = {
 			new: {
-				x: newX, 
+				x: newX,
 				y: newY
 			},
 			old: {
@@ -20,14 +17,14 @@ export const movePiece = (newX, newY, startCoord, piece) => {
 				y: startCoord[1]
 			},
 			piece: piece
-		}
+		};
 	}
 
-  return {
-    type: MOVE_PIECE,
-    payload: p
-  }
-}
+	return {
+		type: MOVE_PIECE,
+		payload: p
+	};
+};
 
 export const selectPiece = (x, y) => {
 	let p = {
@@ -35,18 +32,17 @@ export const selectPiece = (x, y) => {
 			x: x,
 			y: y
 		}
-	}
+	};
 
-  return {
-    type: SELECT_PIECE,
-    payload: p
-  }
-}
+	return {
+		type: SELECT_PIECE,
+		payload: p
+	};
+};
 
-export const deselectPiece = ( ) =>{
-
-  return {
-    type: DESELECT_PIECE,
-    payload: {}
-  }
-}
+export const deselectPiece = () => {
+	return {
+		type: DESELECT_PIECE,
+		payload: {}
+	};
+};

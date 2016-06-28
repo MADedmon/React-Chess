@@ -2,7 +2,7 @@ module.exports = {
   // start
   entry: './src/js/index.js',
 
-  // generate the output js file 
+  // generate the output js file
   output: {
     publicPath: 'http://localhost:8080/',
     filename: 'build/bundle.js'
@@ -12,12 +12,21 @@ module.exports = {
   devtool: 'source-map',
 
   module: {
+    // ESLint
+    preLoaders: [
+      {
+        test: /\.jsx$|\.js$/,
+        loader: 'eslint-loader?{rules:{indent:0}}',
+        include: __dirname,
+        exclude: /mode_modules/
+      }
+    ],
     loaders: [
 
       // transforms JSX and ES6(ES2015) into normal js
       {
         test: /\.js$/,
-        loaders: [ 'babel' ],
+        loaders: ['babel'],
         exclude: /node_modules/,
         include: __dirname
       },
@@ -41,6 +50,9 @@ module.exports = {
           'img'
         ]
       }
-    ]
+    ],
+    eslint: {
+      configFile: '.eslintrc.js'
+    },
   }
 };
